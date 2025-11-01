@@ -41,6 +41,7 @@ const allTracks = [
   { title: "The Hills", file: "The Hills - The Weeknd.mp3" },
   { title: "Better", file: "Better - Khalid.mp3" },
   { title: "Eyes Off You", file: "Eyes Off You - Prettymuch.mp3" }
+  { title: "Ponte Bonita", file: " Cris_MJ_Ponte_Bonita_Visualizer_Partyson[2].mp3" }
 ];
 
 // ======== PLAYER UTAMA ========
@@ -94,4 +95,5 @@ nextBtn.addEventListener("click", playRandomTrack);
 audio.addEventListener("ended", playRandomTrack);
 
 // ======== MULAI PERTAMA ========
+
 playRandomTrack();
