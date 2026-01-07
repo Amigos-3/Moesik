@@ -89,4 +89,9 @@ h1 {
   .container {
     max-width: 600px;
   }
+  /* Sembunyikan list lagu */
+#songList {
+  display: none;
 }
+}
+
