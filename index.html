@@ -3,43 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎼  🇲​​🇴​​🇪​​🇸​​🇮​​🇰​ ​🇯​​🇪​​🇱​​🇦​​🇸​ ​🇦​​🇿​​🇮​​🇰​</title>
-  <link rel="stylesheet" href="style.css">
+  <title>🎼  🇲​​🇴​​🇪​​🇸​​🇮​​🇰​ ​🇯​​🇪​​🇱​​🇦​​🇸​ ​🇦​​🇿​​🇮​​🇰</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div id="stars"></div>
-  <div id="planet"></div>
 
-  <header>
-    <div class="logo">🎧 MӨΣƧIK JΣᄂΛƧ ΛZIK</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Artists</a>
-    </nav>
-    <input type="text" id="search" placeholder="🔍 Cari lagu...">
-  </header>
+  <div class="galaxy-bg"></div>
 
-  <main>
-    <section class="lagu">
-      <h2>🎶 List Moesik</h2>
-      <div id="trackList"></div>
-    </section>
-  </main>
+  <div class="container">
+    <h1>🌌 Galaxy Music</h1>
 
-  <!-- 🎵 Player Control -->
-  <div class="player">
-    <audio id="audioPlayer" controls></audio>
-    <div class="controls">
-      <button id="prevBtn">⏮️</button>
-      <button id="playPauseBtn">⏯️</button>
-      <button id="nextBtn">⏭️</button>
+    <input 
+      type="text" 
+      id="search" 
+      placeholder="🔍Cari moesikmoe"
+    >
+
+    <ul id="songList"></ul>
+
+    <div class="player">
+      <p id="songTitle">Judul Lagu</p>
+      <audio id="audio" controls></audio>
+
+      <button onclick="randomSong()">⏭ Skip Random</button>
     </div>
   </div>
 
-  <footer>
-    <p>&copy; MӨΣƧIK JΣᄂΛƧ ΛZIK | Thanks For Your Trying (﹙˓ 𝄞 ˒﹚) - Three Amigos</p>
-  </footer>
-
-  <script src="script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
