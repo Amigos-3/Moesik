@@ -31,7 +31,6 @@ const songTitle = document.getElementById("songTitle");
 const songList = document.getElementById("songList");
 const search = document.getElementById("search");
 
-/* RANDOM SAAT WEB DIBUKA */
 function randomSong() {
   const random = Math.floor(Math.random() * songs.length);
   audio.src = songs[random].file;
@@ -39,22 +38,20 @@ function randomSong() {
   audio.play();
 }
 
-/* TAMPILKAN LIST */
 function showSongs(list) {
   songList.innerHTML = "";
   list.forEach(song => {
     const li = document.createElement("li");
-    li.innerText = song.title;
     li.onclick = () => {
       audio.src = song.file;
       songTitle.innerText = song.title;
       audio.play();
     };
+    li.innerText = song.title;
     songList.appendChild(li);
   });
 }
 
-/* SEARCH */
 search.addEventListener("input", () => {
   const value = search.value.toLowerCase();
   const filtered = songs.filter(song =>
@@ -65,5 +62,3 @@ search.addEventListener("input", () => {
 
 showSongs(songs);
 randomSong();
-
-
