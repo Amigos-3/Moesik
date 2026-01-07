@@ -41,6 +41,10 @@ function randomSong() {
   const randomIndex = Math.floor(Math.random() * songs.length);
   playSong(songs[randomIndex]);
 }
+// Kalau lagu selesai, lanjut lagu random
+audio.addEventListener("ended", () => {
+  randomSong();
+});
 
 function showSongs(list) {
   songList.innerHTML = "";
@@ -62,3 +66,4 @@ search.addEventListener("input", () => {
 
 showSongs(songs);
 randomSong();
+
