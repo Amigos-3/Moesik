@@ -27,6 +27,10 @@ const songs = [
 ];
 
 const audio = document.getElementById("audio");
+audio.addEventListener("ended", () => {
+  randomSong();
+});
+
 const songTitle = document.getElementById("songTitle");
 const songList = document.getElementById("songList");
 const search = document.getElementById("search");
@@ -66,4 +70,5 @@ search.addEventListener("input", () => {
 
 showSongs(songs);
 randomSong();
+
 
