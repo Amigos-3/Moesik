@@ -31,31 +31,31 @@ const songTitle = document.getElementById("songTitle");
 const songList = document.getElementById("songList");
 const search = document.getElementById("search");
 
-function randomSong() {
-  const random = Math.floor(Math.random() * songs.length);
-  audio.src = songs[random].file;
-  songTitle.innerText = songs[random].title;
+function playSong(song) {
+  audio.src = song.file;
+  songTitle.innerText = song.title;
   audio.play();
+}
+
+function randomSong() {
+  const randomIndex = Math.floor(Math.random() * songs.length);
+  playSong(songs[randomIndex]);
 }
 
 function showSongs(list) {
   songList.innerHTML = "";
   list.forEach(song => {
     const li = document.createElement("li");
-    li.onclick = () => {
-      audio.src = song.file;
-      songTitle.innerText = song.title;
-      audio.play();
-    };
-    li.innerText = song.title;
+    li.textContent = song.title;
+    li.onclick = () => playSong(song);
     songList.appendChild(li);
   });
 }
 
 search.addEventListener("input", () => {
-  const value = search.value.toLowerCase();
+  const keyword = search.value.toLowerCase();
   const filtered = songs.filter(song =>
-    song.title.toLowerCase().includes(value)
+    song.title.toLowerCase().includes(keyword)
   );
   showSongs(filtered);
 });
