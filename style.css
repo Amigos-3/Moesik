@@ -40,9 +40,22 @@ body {
   margin: 15px 0;
 }
 
-/* SONG LIST (DISSEMBUNYIKAN) */
 #songList {
+  list-style: none;
+  max-height: 160px;
+  overflow-y: auto;
+  margin-bottom: 15px;
   display: none;
+}
+
+#songList li {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+#songList li:hover {
+  color: violet;
 }
 
 /* PLAYER */
@@ -71,3 +84,4 @@ body {
     max-width: 600px;
   }
 }
+
