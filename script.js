@@ -34,25 +34,29 @@ const songList = document.getElementById("songList");
 
 let currentIndex = -1;
 
+/* PLAY SONG */
 function playSong(song) {
   audio.src = song.file;
-  songTitle.innerText = song.title;
+  songTitle.textContent = song.title;
+
+  audio.load();   // 🔥 WAJIB
   audio.play();
 }
 
+/* RANDOM SONG */
 function randomSong() {
   if (songs.length === 0) return;
 
-  let randomIndex;
+  let index;
   do {
-    randomIndex = Math.floor(Math.random() * songs.length);
-  } while (randomIndex === currentIndex);
+    index = Math.floor(Math.random() * songs.length);
+  } while (index === currentIndex);
 
-  currentIndex = randomIndex;
-  playSong(songs[currentIndex]);
+  currentIndex = index;
+  playSong(songs[index]);
 }
 
-/* PLAY (harus klik user) */
+/* PLAY */
 playBtn.addEventListener("click", () => {
   randomSong();
 });
@@ -62,22 +66,35 @@ skipBtn.addEventListener("click", () => {
   randomSong();
 });
 
-/* LANJUT OTOMATIS */
+/* AUTO NEXT */
 audio.addEventListener("ended", () => {
   randomSong();
 });
 
-/* SEARCH (walau list disembunyikan, tetap berfungsi) */
+/* SEARCH */
 search.addEventListener("input", () => {
   const keyword = search.value.toLowerCase();
   songList.innerHTML = "";
 
-  songs
-    .filter(song => song.title.toLowerCase().includes(keyword))
-    .forEach(song => {
-      const li = document.createElement("li");
-      li.textContent = song.title;
-      li.onclick = () => playSong(song);
-      songList.appendChild(li);
-    });
+  if (keyword === "") {
+    songList.style.display = "none";
+    return;
+  }
+
+  const filtered = songs.filter(song =>
+    song.title.toLowerCase().includes(keyword)
+  );
+
+  filtered.forEach(song => {
+    const li = document.createElement("li");
+    li.textContent = song.title;
+    li.onclick = () => {
+      playSong(song);
+      songList.style.display = "none";
+      search.value = "";
+    };
+    songList.appendChild(li);
+  });
+
+  songList.style.display = "block";
 });
