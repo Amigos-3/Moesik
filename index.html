@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎼  🇲​​🇴​​🇪​​🇸​​🇮​​🇰​ ​🇯​​🇪​​🇱​​🇦​​🇸​ ​🇦​​🇿​​🇮​​🇰</title>
+  <title>🎼  🇲​​🇴​​🇪​​🇸​​🇮​​🇰​ ​🇯​​🇪​​🇱​​🇦​​🇸​ ​🇦​​🇿​​🇮​​🇰c</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,28 +11,27 @@
   <div class="galaxy-bg"></div>
 
   <div class="container">
-    <h1>🌌 Galaxy Music</h1>
+    <h1>🎧 MӨΣƧIK JΣᄂΛƧ ΛZIK</h1>
 
-    <input 
-      type="text" 
-      id="search" 
-      placeholder="🔍Cari moesikmoe"
+    <input
+      type="text"
+      id="search"
+      placeholder="🔍 Cari lagu..."
     >
 
+    <!-- list lagu (disembunyikan via CSS) -->
     <ul id="songList"></ul>
 
     <div class="player">
-      <p id="songTitle">Judul Lagu</p>
+      <p id="songTitle">Tekan Play 🎵</p>
+
       <audio id="audio" controls></audio>
 
-      <button onclick="randomSong()">⏭ Skip Random</button>
+      <button id="playBtn">▶ Play Music</button>
+      <button id="skipBtn">⏭ Skip Random</button>
     </div>
   </div>
 
   <script src="script.js"></script>
-  <button id="playBtn">Play Music</button>
-
 </body>
 </html>
-
-
