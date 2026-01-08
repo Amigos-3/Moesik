@@ -1,5 +1,5 @@
 const songs = [
-  { title: "Back To Friends - Sombr", file: "Back To Friends-Sombr.mp3" },
+ { title: "Back To Friends - Sombr", file: "Back To Friends-Sombr.mp3" },
   { title: "Better - Khalid", file: "Better - Khalid.mp3" },
   { title: "Calma Remix - Pedro Capó Farruko", file: "Calma_Remix_-_Pedro_Capó_Farruko[1].mp3" },
   { title: "Cincin - Hindia", file: "Cincin_-_Hindia[1].mp3" },
@@ -8,7 +8,7 @@ const songs = [
   { title: "Di Ujung Jalan - Samsons", file: "Di Ujung Jalan - Samsons.mp3" },
   { title: "Earned It - The Weeknd", file: "Earned It - The Weeknd.mp3" },
   { title: "Everything U Are - Hindia", file: "Everything_u_are_-_Hindia[1].mp3" },
-  { title: "Eyes Off You - Prettymuch", file: "Eyes Off You - Prettymuch.mp3" }
+  { title: "Eyes Off You - Prettymuch", file: "Eyes Off You - Prettymuch.mp3" },
   { title: "Figurinha part MC Bruninho Douglas e Vinícius", file: "Figurinha_part_MC_Bruninho_Douglas_e_Vinícius[1].mp3" },
   { title: "Gata Only - CrisMj with FloyyMenor", file: "Gata Only - CrisMj with FloyyMenor.mp3" },
   { title: "Komang - Raim Laode", file: "Komang-Raim Laode.mp3" },
@@ -27,57 +27,57 @@ const songs = [
 
 const audio = document.getElementById("audio");
 const songTitle = document.getElementById("songTitle");
-const songList = document.getElementById("songList");
+const playBtn = document.getElementById("playBtn");
+const skipBtn = document.getElementById("skipBtn");
 const search = document.getElementById("search");
+const songList = document.getElementById("songList");
 
 let currentIndex = -1;
 
 function playSong(song) {
   audio.src = song.file;
-  songTitle.textContent = song.title;
+  songTitle.innerText = song.title;
   audio.play();
 }
 
 function randomSong() {
-  let index;
+  if (songs.length === 0) return;
+
+  let randomIndex;
   do {
-    index = Math.floor(Math.random() * songs.length);
-  } while (index === currentIndex);
+    randomIndex = Math.floor(Math.random() * songs.length);
+  } while (randomIndex === currentIndex);
 
-  currentIndex = index;
-  playSong(songs[index]);
+  currentIndex = randomIndex;
+  playSong(songs[currentIndex]);
 }
 
-/* auto lanjut random kalau lagu selesai */
-audio.addEventListener("ended", randomSong);
-
-/* list lagu */
-function showSongs(list) {
-  songList.innerHTML = "";
-  list.forEach(song => {
-    const li = document.createElement("li");
-    li.textContent = song.title;
-    li.onclick = () => playSong(song);
-    songList.appendChild(li);
-  });
-}
-
-/* search */
-search.addEventListener("input", () => {
-  const keyword = search.value.toLowerCase();
-  if (keyword === "") {
-    songList.style.display = "none";
-    return;
-  }
-
-  const filtered = songs.filter(song =>
-    song.title.toLowerCase().includes(keyword)
-  );
-
-  songList.style.display = "block";
-  showSongs(filtered);
+/* PLAY (harus klik user) */
+playBtn.addEventListener("click", () => {
+  randomSong();
 });
 
-/* pertama kali masuk web */
-randomSong();
+/* SKIP */
+skipBtn.addEventListener("click", () => {
+  randomSong();
+});
 
+/* LANJUT OTOMATIS */
+audio.addEventListener("ended", () => {
+  randomSong();
+});
+
+/* SEARCH (walau list disembunyikan, tetap berfungsi) */
+search.addEventListener("input", () => {
+  const keyword = search.value.toLowerCase();
+  songList.innerHTML = "";
+
+  songs
+    .filter(song => song.title.toLowerCase().includes(keyword))
+    .forEach(song => {
+      const li = document.createElement("li");
+      li.textContent = song.title;
+      li.onclick = () => playSong(song);
+      songList.appendChild(li);
+    });
+});
