@@ -1,5 +1,5 @@
 const songs = [
- { title: "Back To Friends - Sombr", file: "Back To Friends-Sombr.mp3" },
+  { title: "Back To Friends - Sombr", file: "Back To Friends-Sombr.mp3" },
   { title: "Better - Khalid", file: "Better - Khalid.mp3" },
   { title: "Calma Remix - Pedro Capó Farruko", file: "Calma_Remix_-_Pedro_Capó_Farruko[1].mp3" },
   { title: "Cincin - Hindia", file: "Cincin_-_Hindia[1].mp3" },
@@ -32,46 +32,52 @@ const skipBtn = document.getElementById("skipBtn");
 const search = document.getElementById("search");
 const songList = document.getElementById("songList");
 
+let randomPool = [];
 let currentIndex = -1;
 
-/* PLAY SONG */
+/* 🔹 SIAPKAN BEBERAPA LAGU RANDOM DI AWAL */
+function initRandomSongs(jumlah = 5) {
+  const shuffled = [...songs].sort(() => 0.5 - Math.random());
+  randomPool = shuffled.slice(0, jumlah);
+}
+
+/* 🔹 PUTAR LAGU */
 function playSong(song) {
   audio.src = song.file;
   songTitle.textContent = song.title;
-
-  audio.load();   // 🔥 WAJIB
+  audio.load();
   audio.play();
 }
 
-/* RANDOM SONG */
-function randomSong() {
-  if (songs.length === 0) return;
+/* 🔹 PUTAR RANDOM DARI RANDOM POOL */
+function playRandomFromPool() {
+  if (randomPool.length === 0) return;
 
   let index;
   do {
-    index = Math.floor(Math.random() * songs.length);
+    index = Math.floor(Math.random() * randomPool.length);
   } while (index === currentIndex);
 
   currentIndex = index;
-  playSong(songs[index]);
+  playSong(randomPool[index]);
 }
 
-/* PLAY */
+/* ▶ PLAY */
 playBtn.addEventListener("click", () => {
-  randomSong();
+  playRandomFromPool();
 });
 
-/* SKIP */
+/* ⏭ SKIP */
 skipBtn.addEventListener("click", () => {
-  randomSong();
+  playRandomFromPool();
 });
 
-/* AUTO NEXT */
+/* 🔁 AUTO NEXT */
 audio.addEventListener("ended", () => {
-  randomSong();
+  playRandomFromPool();
 });
 
-/* SEARCH */
+/* 🔍 SEARCH (TETAP BERFUNGSI) */
 search.addEventListener("input", () => {
   const keyword = search.value.toLowerCase();
   songList.innerHTML = "";
@@ -98,3 +104,6 @@ search.addEventListener("input", () => {
 
   songList.style.display = "block";
 });
+
+/* 🔹 INISIALISASI SAAT HALAMAN DIBUKA */
+initRandomSongs();
