@@ -1,4 +1,6 @@
-/* RESET */
+/* =====================
+   RESET DASAR
+   ===================== */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +8,9 @@
   font-family: Arial, sans-serif;
 }
 
-/* BODY */
+/* =====================
+   BODY
+   ===================== */
 body {
   min-height: 100vh;
   background: black;
@@ -14,7 +18,9 @@ body {
   overflow-x: hidden;
 }
 
-/* BACKGROUND GALAXY / BLACKHOLE */
+/* =====================
+   BACKGROUND GALAXY
+   ===================== */
 .galaxy-bg {
   position: fixed;
   inset: 0;
@@ -25,7 +31,9 @@ body {
   z-index: -1;
 }
 
-/* CONTAINER UTAMA */
+/* =====================
+   CONTAINER UTAMA
+   ===================== */
 .container {
   max-width: 420px;
   margin: auto;
@@ -33,13 +41,17 @@ body {
   text-align: center;
 }
 
-/* JUDUL */
+/* =====================
+   JUDUL
+   ===================== */
 h1 {
   margin-bottom: 15px;
   font-size: 1.6rem;
 }
 
-/* SEARCH INPUT */
+/* =====================
+   SEARCH
+   ===================== */
 #search {
   width: 100%;
   padding: 10px 12px;
@@ -50,19 +62,20 @@ h1 {
   font-size: 14px;
 }
 
-/* LIST LAGU (SEARCH RESULT) */
+/* =====================
+   LIST LAGU (SEARCH)
+   ===================== */
 #songList {
   list-style: none;
   max-height: 160px;
   overflow-y: auto;
   margin-bottom: 15px;
-  display: none; /* muncul via JS */
+  display: none;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 8px;
   text-align: left;
 }
 
-/* ITEM LAGU */
 #songList li {
   padding: 10px;
   cursor: pointer;
@@ -70,31 +83,29 @@ h1 {
   font-size: 14px;
 }
 
-/* HOVER LAGU */
 #songList li:hover {
   background: rgba(160, 0, 255, 0.2);
   color: violet;
 }
 
-/* PLAYER */
+/* =====================
+   PLAYER
+   ===================== */
 .player {
   margin-top: 10px;
 }
 
-/* JUDUL LAGU AKTIF */
 #songTitle {
   margin-bottom: 10px;
   font-weight: bold;
   font-size: 14px;
 }
 
-/* AUDIO */
 audio {
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* BUTTON */
 .player button {
   margin: 6px;
   padding: 10px 22px;
@@ -106,12 +117,59 @@ audio {
   font-size: 14px;
 }
 
-/* BUTTON HOVER */
 .player button:hover {
   opacity: 0.85;
 }
 
-/* RESPONSIVE LAPTOP */
+/* =====================
+   SEJARAH MUSIK
+   ===================== */
+.history-box {
+  margin-top: 25px;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.history-box h2 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* WRAPPER AGAR TABEL MUNCUL DI HP */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* TABEL */
+.history-box table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 500px; /* 🔥 PENTING: memaksa tampil */
+}
+
+.history-box th,
+.history-box td {
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 8px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.history-box th {
+  background: rgba(160, 0, 255, 0.3);
+}
+
+.history-box td {
+  background: rgba(0, 0, 0, 0.4);
+  line-height: 1.5;
+}
+
+/* =====================
+   RESPONSIVE LAPTOP
+   ===================== */
 @media (min-width: 768px) {
   .container {
     max-width: 600px;
@@ -124,82 +182,13 @@ audio {
   #songTitle {
     font-size: 16px;
   }
-
-  /* TABEL SEJARAH MUSIK */
-.history-box {
-  margin-top: 20px;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 15px;
-  border-radius: 12px;
 }
 
-.history-box h2 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-}
-
-.history-box table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-
-.history-box th,
-.history-box td {
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 8px;
-  text-align: left;
-}
-
-.history-box th {
-  background: rgba(160, 0, 255, 0.3);
-}
-
-.history-box td {
-  background: rgba(0,0,0,0.4);
-}
-
-  /* =========================
-   RESPONSIVE TABLE (HP)
-   ========================= */
+/* =====================
+   RESPONSIVE HP
+   ===================== */
 @media (max-width: 600px) {
-
-  .history-box {
-    padding: 10px;
-  }
-
-  .history-box h2 {
-    font-size: 1rem;
-    text-align: center;
-  }
-
-  /* Bungkus tabel agar bisa scroll */
   .history-box table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
-    white-space: nowrap;
     font-size: 13px;
   }
-
-  .history-box th,
-  .history-box td {
-    padding: 6px;
-  }
-
-  /* Kolom Era lebih kecil */
-  .history-box th:first-child,
-  .history-box td:first-child {
-    width: 90px;
-    font-weight: bold;
-  }
-
-  /* Kolom deskripsi */
-  .history-box td:last-child {
-    white-space: normal;
-    line-height: 1.4;
-  }
 }
-}
-
-
