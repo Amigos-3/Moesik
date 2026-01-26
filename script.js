@@ -12,7 +12,7 @@ const songs = [
   { title: "Figurinha part MC Bruninho Douglas e Vinícius", file: "Figurinha_part_MC_Bruninho_Douglas_e_Vinícius[1].mp3" },
   { title: "Gata Only - CrisMj with FloyyMenor", file: "Gata Only - CrisMj with FloyyMenor.mp3" },
   { title: "Komang - Raim Laode", file: "Komang-Raim Laode.mp3" },
-  { title: "Mangu - Fourtwnty, Charita Utami", file: "Mangu -Fourtwnty feat Charita Utami.mp3" },
+  { title: "Mangu - Fourtwnty, Charita Utami", file: "Mangu - Fourtwnty feat Charita Utami.mp3" },
   { title: "Mejikuhibiniu - Tenxi, Suisei, Jemsii", file: "Mejikuhibiniu - Tenxi, suisei & Jemsii.mp3" },
   { title: "Monolog - Pamungkas", file: "Monolog - Pamungkas .mp3" },
   { title: "Ours To Keep - Kendis, Adis", file: "Ours To Keep - Kendis ft Adis.mp3" },
@@ -107,3 +107,4 @@ search.addEventListener("input", () => {
 
 /* 🔹 INISIALISASI SAAT HALAMAN DIBUKA */
 initRandomSongs();
+
