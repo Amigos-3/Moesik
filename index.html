@@ -4,35 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🎼 ᴀᴍɪɢᴏꜱ 𝓘𝓘𝓘 🎼</title>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <!-- BACKGROUND GALAXY -->
   <div class="galaxy-bg"></div>
 
+  <!-- CONTAINER UTAMA -->
   <div class="container">
+
+    <!-- JUDUL -->
     <h1>🎧 ᴍᴏᴇᴢɪᴋ ᴊᴇʟᴀꜱ ᴀᴢɪᴋ</h1>
 
+    <!-- SEARCH LAGU -->
     <input
       type="text"
       id="search"
       placeholder="🔍 Cari lagu..."
     >
 
-    <!-- list lagu (disembunyikan via CSS) -->
+    <!-- LIST HASIL SEARCH -->
     <ul id="songList"></ul>
 
+    <!-- PLAYER MUSIK -->
     <div class="player">
-      <p id="songTitle">Klik here 🎵</p>
+      <p id="songTitle"> what moesik do you want to listen?</p>
 
       <audio id="audio" controls></audio>
 
       <button id="playBtn">▶ Play </button>
       <button id="skipBtn">⏭ Skip </button>
     </div>
+
+    <!-- TABEL SEJARAH MUSIK -->
+    <div class="history-box">
+      <h2>📜 Sejarah Musik</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Era</th>
+            <th>Deskripsi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="era">-</td>
+            <td id="historyText">
+              Sejarah musik akan ditampilkan secara otomatis.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 
+  <!-- JAVASCRIPT -->
   <script src="script.js"></script>
+
 </body>
 </html>
-
