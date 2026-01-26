@@ -1,5 +1,5 @@
 /* =====================
-   RESET DASAR
+   RESET
    ===================== */
 * {
   margin: 0;
@@ -32,7 +32,7 @@ body {
 }
 
 /* =====================
-   CONTAINER UTAMA
+   CONTAINER
    ===================== */
 .container {
   max-width: 420px;
@@ -50,60 +50,14 @@ h1 {
 }
 
 /* =====================
-   SEARCH
-   ===================== */
-#search {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-/* =====================
-   LIST LAGU (SEARCH)
-   ===================== */
-#songList {
-  list-style: none;
-  max-height: 160px;
-  overflow-y: auto;
-  margin-bottom: 15px;
-  display: none;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 8px;
-  text-align: left;
-}
-
-#songList li {
-  padding: 10px;
-  cursor: pointer;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  font-size: 14px;
-}
-
-#songList li:hover {
-  background: rgba(160, 0, 255, 0.2);
-  color: violet;
-}
-
-/* =====================
    PLAYER
    ===================== */
 .player {
-  margin-top: 10px;
-}
-
-#songTitle {
-  margin-bottom: 10px;
-  font-weight: bold;
-  font-size: 14px;
+  margin-top: 15px;
 }
 
 audio {
   width: 100%;
-  margin-bottom: 10px;
 }
 
 .player button {
@@ -114,15 +68,10 @@ audio {
   background: linear-gradient(135deg, #8e2de2, #4a00e0);
   color: white;
   cursor: pointer;
-  font-size: 14px;
-}
-
-.player button:hover {
-  opacity: 0.85;
 }
 
 /* =====================
-   SEJARAH MUSIK
+   HISTORY BOX
    ===================== */
 .history-box {
   margin-top: 25px;
@@ -137,58 +86,71 @@ audio {
   text-align: center;
 }
 
-/* WRAPPER AGAR TABEL MUNCUL DI HP */
-.table-wrapper {
-  width: 100%;
-  overflow-x: auto;
-}
-
-/* TABEL */
+/* =====================
+   TABEL DEFAULT (LAPTOP)
+   ===================== */
 .history-box table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 500px; /* 🔥 PENTING: memaksa tampil */
 }
 
 .history-box th,
 .history-box td {
   border: 1px solid rgba(255,255,255,0.2);
-  padding: 8px;
-  font-size: 14px;
+  padding: 10px;
   text-align: left;
 }
 
 .history-box th {
-  background: rgba(160, 0, 255, 0.3);
-}
-
-.history-box td {
-  background: rgba(0, 0, 0, 0.4);
-  line-height: 1.5;
+  background: rgba(160, 0, 255, 0.35);
 }
 
 /* =====================
-   RESPONSIVE LAPTOP
+   MODE HP (STACK)
+   ===================== */
+@media (max-width: 600px) {
+
+  .history-box table,
+  .history-box thead,
+  .history-box tbody,
+  .history-box th,
+  .history-box td,
+  .history-box tr {
+    display: block;
+    width: 100%;
+  }
+
+  .history-box thead {
+    display: none;
+  }
+
+  .history-box tr {
+    margin-bottom: 15px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .history-box td {
+    border: none;
+    padding: 6px 0;
+    position: relative;
+  }
+
+  .history-box td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: violet;
+    display: block;
+    margin-bottom: 2px;
+  }
+}
+
+/* =====================
+   LAPTOP
    ===================== */
 @media (min-width: 768px) {
   .container {
     max-width: 600px;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  #songTitle {
-    font-size: 16px;
-  }
-}
-
-/* =====================
-   RESPONSIVE HP
-   ===================== */
-@media (max-width: 600px) {
-  .history-box table {
-    font-size: 13px;
   }
 }
