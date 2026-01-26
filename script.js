@@ -4,7 +4,7 @@ const songs = [
   { title: "Calma Remix - Pedro Capó Farruko", file: "Calma_Remix_-_Pedro_Capó_Farruko[1].mp3" },
   { title: "Cincin - Hindia", file: "Cincin_-_Hindia[1].mp3" },
   { title: "Ponte Bonita - CrisMj", file: "Cris_MJ_Ponte_Bonita_Visualizer_Partyson[2].mp3" },
-  { title: "Daddy's Home - Usher, Plies", file: "Daddy's Home -Usher ft Plies.mp3" },
+  { title: "Daddy's Home - Usher with Plies", file: "Daddy's Home - Usher ft Plies.mp3" },
   { title: "Di Ujung Jalan - Samsons", file: "Di Ujung Jalan - Samsons.mp3" },
   { title: "Earned It - The Weeknd", file: "Earned It - The Weeknd.mp3" },
   { title: "Everything U Are - Hindia", file: "Everything_u_are_-_Hindia[1].mp3" },
@@ -107,4 +107,5 @@ search.addEventListener("input", () => {
 
 /* 🔹 INISIALISASI SAAT HALAMAN DIBUKA */
 initRandomSongs();
+
 
