@@ -14,7 +14,8 @@
 body {
   background: black;
   color: white;
-  overflow-x: hidden; /* KUNCI SCROLL KE SAMPING */
+  overflow-x: hidden;
+  padding-top: 40px; /* ⬅️ agar tidak menekan ke atas */
 }
 
 /* =====================
@@ -37,8 +38,8 @@ body {
 .container {
   width: 100%;
   max-width: 600px;
-  margin: auto;
-  padding: 16px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
   text-align: center;
 }
 
@@ -46,19 +47,36 @@ body {
    JUDUL
    ===================== */
 h1 {
-  margin-bottom: 15px;
+  margin-bottom: 22px;
+  font-size: 1.6rem;
+}
+
+/* =====================
+   SEARCH
+   ===================== */
+#search {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 18px;
 }
 
 /* =====================
    PLAYER
    ===================== */
+.player {
+  margin-top: 20px;
+}
+
 audio {
   width: 100%;
+  margin-top: 10px;
 }
 
 .player button {
-  margin: 5px;
-  padding: 10px 20px;
+  margin: 8px 6px 0;
+  padding: 10px 22px;
   border-radius: 20px;
   border: none;
   background: linear-gradient(135deg, #8e2de2, #4a00e0);
@@ -70,60 +88,57 @@ audio {
    HISTORY BOX
    ===================== */
 .history-box {
-  margin-top: 25px;
-  padding: 15px;
+  margin-top: 40px; /* ⬅️ jarak dari player */
+  padding: 18px;
   background: rgba(0,0,0,0.65);
-  border-radius: 12px;
+  border-radius: 14px;
   width: 100%;
 }
 
+.history-box h2 {
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+
 /* =====================
-   TABLE (GLOBAL FIX)
+   TABLE (AMAN SEMUA LAYAR)
    ===================== */
 .history-box table {
   width: 100%;
-  table-layout: fixed; /* INI KUNCI UTAMA */
   border-collapse: collapse;
+  table-layout: fixed; /* ⬅️ KUNCI ANTI MELEBAR */
 }
 
-/* =====================
-   CELL
-   ===================== */
 .history-box th,
 .history-box td {
   border: 1px solid rgba(255,255,255,0.25);
-  padding: 8px;
+  padding: 10px;
   font-size: 14px;
+  text-align: left;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  white-space: normal; /* BIAR TEKS TURUN */
+  white-space: normal;
 }
 
 .history-box th {
   background: rgba(160,0,255,0.35);
-  text-align: left;
 }
 
 /* =====================
-   HP MODE (PAKSA AMAN)
+   RESPONSIVE HP
    ===================== */
 @media (max-width: 600px) {
 
   body {
-    overflow-x: hidden;
+    padding-top: 50px; /* ⬅️ lebih lega di HP */
   }
 
-  .container {
-    max-width: 100%;
-    padding: 12px;
+  h1 {
+    font-size: 1.4rem;
   }
 
   .history-box {
-    padding: 12px;
-  }
-
-  .history-box table {
-    width: 100%;
+    padding: 14px;
   }
 
   .history-box th,
