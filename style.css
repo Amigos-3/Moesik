@@ -12,22 +12,22 @@
    BODY
    ===================== */
 body {
-  min-height: 100vh;
   background: black;
   color: white;
-  overflow-x: hidden;
+  overflow-x: hidden; /* KUNCI SCROLL KE SAMPING */
 }
 
 /* =====================
-   BACKGROUND GALAXY
+   GALAXY BACKGROUND
    ===================== */
 .galaxy-bg {
   position: fixed;
   inset: 0;
-  background:
-    radial-gradient(circle at center,
-      rgba(160, 0, 255, 0.85),
-      rgba(0, 0, 0, 0.95) 55%);
+  background: radial-gradient(
+    circle at center,
+    rgba(160, 0, 255, 0.9),
+    rgba(0, 0, 0, 0.95) 60%
+  );
   z-index: -1;
 }
 
@@ -35,9 +35,10 @@ body {
    CONTAINER
    ===================== */
 .container {
-  max-width: 420px;
+  width: 100%;
+  max-width: 600px;
   margin: auto;
-  padding: 20px;
+  padding: 16px;
   text-align: center;
 }
 
@@ -46,23 +47,18 @@ body {
    ===================== */
 h1 {
   margin-bottom: 15px;
-  font-size: 1.6rem;
 }
 
 /* =====================
    PLAYER
    ===================== */
-.player {
-  margin-top: 15px;
-}
-
 audio {
   width: 100%;
 }
 
 .player button {
-  margin: 6px;
-  padding: 10px 22px;
+  margin: 5px;
+  padding: 10px 20px;
   border-radius: 20px;
   border: none;
   background: linear-gradient(135deg, #8e2de2, #4a00e0);
@@ -75,82 +71,63 @@ audio {
    ===================== */
 .history-box {
   margin-top: 25px;
-  background: rgba(0, 0, 0, 0.65);
   padding: 15px;
+  background: rgba(0,0,0,0.65);
   border-radius: 12px;
-}
-
-.history-box h2 {
-  margin-bottom: 10px;
-  font-size: 1.2rem;
-  text-align: center;
+  width: 100%;
 }
 
 /* =====================
-   TABEL DEFAULT (LAPTOP)
+   TABLE (GLOBAL FIX)
    ===================== */
 .history-box table {
   width: 100%;
+  table-layout: fixed; /* INI KUNCI UTAMA */
   border-collapse: collapse;
 }
 
+/* =====================
+   CELL
+   ===================== */
 .history-box th,
 .history-box td {
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 10px;
-  text-align: left;
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 8px;
+  font-size: 14px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal; /* BIAR TEKS TURUN */
 }
 
 .history-box th {
-  background: rgba(160, 0, 255, 0.35);
+  background: rgba(160,0,255,0.35);
+  text-align: left;
 }
 
 /* =====================
-   MODE HP (STACK)
+   HP MODE (PAKSA AMAN)
    ===================== */
 @media (max-width: 600px) {
 
-  .history-box table,
-  .history-box thead,
-  .history-box tbody,
-  .history-box th,
-  .history-box td,
-  .history-box tr {
-    display: block;
+  body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 12px;
+  }
+
+  .history-box {
+    padding: 12px;
+  }
+
+  .history-box table {
     width: 100%;
   }
 
-  .history-box thead {
-    display: none;
-  }
-
-  .history-box tr {
-    margin-bottom: 15px;
-    background: rgba(0,0,0,0.5);
-    border-radius: 8px;
-    padding: 10px;
-  }
-
+  .history-box th,
   .history-box td {
-    border: none;
-    padding: 6px 0;
-    position: relative;
-  }
-
-  .history-box td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    color: violet;
-    display: block;
-    margin-bottom: 2px;
-  }
-}
-
-/* =====================
-   LAPTOP
-   ===================== */
-@media (min-width: 768px) {
-  .container {
-    max-width: 600px;
+    font-size: 13px;
   }
 }
