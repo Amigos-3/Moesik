@@ -158,5 +158,48 @@ audio {
 .history-box td {
   background: rgba(0,0,0,0.4);
 }
+
+  /* =========================
+   RESPONSIVE TABLE (HP)
+   ========================= */
+@media (max-width: 600px) {
+
+  .history-box {
+    padding: 10px;
+  }
+
+  .history-box h2 {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* Bungkus tabel agar bisa scroll */
+  .history-box table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-size: 13px;
+  }
+
+  .history-box th,
+  .history-box td {
+    padding: 6px;
+  }
+
+  /* Kolom Era lebih kecil */
+  .history-box th:first-child,
+  .history-box td:first-child {
+    width: 90px;
+    font-weight: bold;
+  }
+
+  /* Kolom deskripsi */
+  .history-box td:last-child {
+    white-space: normal;
+    line-height: 1.4;
+  }
 }
+}
+
 
