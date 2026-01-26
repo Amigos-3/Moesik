@@ -9,13 +9,16 @@
 }
 
 /* =====================
-   BODY
+   BODY (KUNCI MASALAH)
    ===================== */
 body {
   background: black;
   color: white;
   overflow-x: hidden;
-  padding-top: 40px; /* ⬅️ agar tidak menekan ke atas */
+
+  min-height: 100vh;              /* ⬅️ setinggi layar */
+  display: flex;
+  justify-content: flex-start;    /* mulai dari atas */
 }
 
 /* =====================
@@ -33,13 +36,14 @@ body {
 }
 
 /* =====================
-   CONTAINER
+   CONTAINER (KUNCI KE-2)
    ===================== */
 .container {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  padding: 24px 16px 40px;
+
+  padding: 40px 16px 60px; /* ⬅️ atas & bawah SEIMBANG */
   text-align: center;
 }
 
@@ -47,7 +51,7 @@ body {
    JUDUL
    ===================== */
 h1 {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   font-size: 1.6rem;
 }
 
@@ -59,7 +63,7 @@ h1 {
   padding: 10px;
   border-radius: 8px;
   border: none;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 /* =====================
@@ -75,7 +79,7 @@ audio {
 }
 
 .player button {
-  margin: 8px 6px 0;
+  margin: 10px 6px 0;
   padding: 10px 22px;
   border-radius: 20px;
   border: none;
@@ -88,7 +92,7 @@ audio {
    HISTORY BOX
    ===================== */
 .history-box {
-  margin-top: 40px; /* ⬅️ jarak dari player */
+  margin-top: 40px;
   padding: 18px;
   background: rgba(0,0,0,0.65);
   border-radius: 14px;
@@ -101,12 +105,12 @@ audio {
 }
 
 /* =====================
-   TABLE (AMAN SEMUA LAYAR)
+   TABLE
    ===================== */
 .history-box table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed; /* ⬅️ KUNCI ANTI MELEBAR */
+  table-layout: fixed;
 }
 
 .history-box th,
@@ -117,7 +121,6 @@ audio {
   text-align: left;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  white-space: normal;
 }
 
 .history-box th {
@@ -125,20 +128,21 @@ audio {
 }
 
 /* =====================
-   RESPONSIVE HP
+   HP KHUSUS (FINAL FIX)
    ===================== */
 @media (max-width: 600px) {
 
   body {
-    padding-top: 50px; /* ⬅️ lebih lega di HP */
+    align-items: flex-start;
+  }
+
+  .container {
+    padding-top: 50px;    /* ⬅️ turun dari atas */
+    padding-bottom: 80px; /* ⬅️ isi ruang bawah */
   }
 
   h1 {
     font-size: 1.4rem;
-  }
-
-  .history-box {
-    padding: 14px;
   }
 
   .history-box th,
