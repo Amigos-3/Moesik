@@ -108,4 +108,50 @@ search.addEventListener("input", () => {
 /* 🔹 INISIALISASI SAAT HALAMAN DIBUKA */
 initRandomSongs();
 
+/* 📜 DATA SEJARAH MUSIK */
+const musicHistory = [
+  {
+    era: "Musik Klasik",
+    text: "Musik klasik berkembang pada abad ke-18 dan ke-19 dengan tokoh seperti Mozart dan Beethoven."
+  },
+  {
+    era: "Musik Jazz",
+    text: "Jazz berasal dari komunitas Afrika-Amerika pada awal abad ke-20 dengan ciri improvisasi."
+  },
+  {
+    era: "Musik Rock",
+    text: "Rock berkembang pada tahun 1950-an dan dipopulerkan oleh Elvis Presley dan The Beatles."
+  },
+  {
+    era: "Musik Pop",
+    text: "Musik pop bersifat ringan dan mudah diterima, berkembang pesat sejak tahun 1980-an."
+  },
+  {
+    era: "Musik Digital",
+    text: "Era digital memungkinkan musik diakses secara online melalui streaming dan platform digital."
+  }
+];
+
+let historyIndex = 0;
+
+const eraEl = document.getElementById("era");
+const historyTextEl = document.getElementById("historyText");
+
+/* 🔁 GANTI SEJARAH OTOMATIS */
+function updateHistory() {
+  eraEl.textContent = musicHistory[historyIndex].era;
+  historyTextEl.textContent = musicHistory[historyIndex].text;
+
+  historyIndex++;
+  if (historyIndex >= musicHistory.length) {
+    historyIndex = 0;
+  }
+}
+
+/* tampil pertama */
+updateHistory();
+
+/* ganti setiap 6 detik */
+setInterval(updateHistory, 6000);
+
 
